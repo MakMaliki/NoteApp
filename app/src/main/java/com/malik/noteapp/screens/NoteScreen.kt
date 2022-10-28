@@ -101,7 +101,6 @@ fun NoteScreen(
                     if (it.all { char ->
                             char.isLetter() || char.isWhitespace()
                         }) descNote = it
-
                 })
 
             SaveButton(
