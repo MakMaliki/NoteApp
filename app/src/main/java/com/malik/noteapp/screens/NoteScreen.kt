@@ -102,7 +102,6 @@ fun NoteScreen(
                             char.isLetter() || char.isWhitespace()
                         }) descNote = it
                 })
-
             SaveButton(
                 modifier = Modifier.padding(
                     top = 8.dp,
