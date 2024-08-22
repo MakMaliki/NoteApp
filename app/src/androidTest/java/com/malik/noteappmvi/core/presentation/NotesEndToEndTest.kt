@@ -22,7 +22,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
 
-
 @HiltAndroidTest
 @UninstallModules(AppModule::class)
 class NotesEndToEndTest {
@@ -65,11 +64,9 @@ class NotesEndToEndTest {
     }
 
     private fun insertNote(noteNumber: Int) {
-        composeRule.onNodeWithTag(TestTags.ADD_NOTE_FAB)
-            .performClick()
+        composeRule.onNodeWithTag(TestTags.ADD_NOTE_FAB).performClick()
 
-        composeRule.onNodeWithTag(TestTags.TITLE_TEXT_FIELD)
-            .performTextInput("title $noteNumber")
+        composeRule.onNodeWithTag(TestTags.TITLE_TEXT_FIELD).performTextInput("title $noteNumber")
 
         composeRule.onNodeWithTag(TestTags.DESCRIPTION_TEXT_FIELD)
             .performTextInput("description $noteNumber")
@@ -78,8 +75,7 @@ class NotesEndToEndTest {
             TestTags.NOTE_IMAGE
         ).performClick()
 
-        composeRule.onNodeWithTag(TestTags.SEARCH_IMAGE_DIALOG)
-            .assertIsDisplayed()
+        composeRule.onNodeWithTag(TestTags.SEARCH_IMAGE_DIALOG).assertIsDisplayed()
 
         composeRule.onNodeWithTag(TestTags.SEARCH_IMAGE_TEXT_FIELD)
             .performTextInput("query$noteNumber")
@@ -90,16 +86,14 @@ class NotesEndToEndTest {
 
         composeRule.onNodeWithTag(
             TestTags.PICKED_IMAGE + "image$noteNumber"
-        )
-            .performClick()
+        ).performClick()
 
         composeRule.onNodeWithTag(
             TestTags.NOTE_IMAGE
         ).assertIsDisplayed()
 
 
-        composeRule.onNodeWithTag(TestTags.SAVE_BUTTON)
-            .performClick()
+        composeRule.onNodeWithTag(TestTags.SAVE_BUTTON).performClick()
 
     }
 
@@ -110,13 +104,11 @@ class NotesEndToEndTest {
     }
 
     private fun assertNoteIsDisplayed(noteNumber: Int) {
-        composeRule.onNodeWithText("title $noteNumber")
-            .assertIsDisplayed()
+        composeRule.onNodeWithText("title $noteNumber").assertIsDisplayed()
     }
 
 
     private fun assertNoteIsNotDisplayed(noteNumber: Int) {
-        composeRule.onNodeWithText("title $noteNumber")
-            .assertIsNotDisplayed()
+        composeRule.onNodeWithText("title $noteNumber").assertIsNotDisplayed()
     }
 }
