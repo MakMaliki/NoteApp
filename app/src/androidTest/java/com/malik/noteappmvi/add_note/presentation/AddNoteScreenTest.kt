@@ -57,7 +57,6 @@ class AddNoteScreenTest {
         runBlocking {
             delay(600)
         }
-
         composeRule.onNodeWithTag(TestTags.NOTE_IMAGE + "image3")
             .performClick()
 
